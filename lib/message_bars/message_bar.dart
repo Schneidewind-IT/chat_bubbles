@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 ///
 /// # STRINGS
 /// [replyingTo] is a string to tag the replying message
+/// [messageBarHint] message bar input placeholder
 ///
 /// # WIDGETS
 /// [actions] are the additional leading action buttons like camera
@@ -32,6 +33,7 @@ import 'package:flutter/material.dart';
 class MessageBar extends StatelessWidget {
   final bool replying;
   final String replyingTo;
+  final String messageBarHint;
   final List<Widget> actions;
   final TextEditingController _textController = TextEditingController();
   final Color replyWidgetColor;
@@ -49,6 +51,7 @@ class MessageBar extends StatelessWidget {
   MessageBar({
     this.replying = false,
     this.replyingTo = "",
+    this.messageBarHint = "Type your message here",
     this.actions = const [],
     this.replyWidgetColor = const Color(0xffF4F4F5),
     this.replyIconColor = Colors.blue,
@@ -128,7 +131,7 @@ class MessageBar extends StatelessWidget {
                         maxLines: 3,
                         onChanged: onTextChanged,
                         decoration: InputDecoration(
-                          hintText: "Type your message here",
+                          hintText: messageBarHint,
                           hintMaxLines: 1,
                           contentPadding: const EdgeInsets.symmetric(
                               horizontal: 8.0, vertical: 10),
